@@ -1,0 +1,202 @@
+{
+  "ATOM": {
+    "definition": "The smallest unit of ordinary matter that forms a chemical element, consisting of protons, neutrons, and electrons.",
+    "pronunciation": "/ˈætəm/",
+    "part_of_speech": "noun",
+    "examples": [
+      "An atom consists of protons, neutrons, and electrons.",
+      "Water molecules are made of hydrogen and oxygen atoms."
+    ],
+    "etymology": "From Greek 'atomos' meaning indivisible"
+  },
+  "CELL": {
+    "definition": "The smallest structural and functional unit of an organism, typically microscopic and consisting of cytoplasm enclosed within a membrane.",
+    "pronunciation": "/sɛl/",
+    "part_of_speech": "noun",
+    "examples": [
+      "The human body contains trillions of cells.",
+      "Plant cells have a rigid cell wall."
+    ],
+    "etymology": "From Latin 'cella' meaning small room"
+  },
+  "GENE": {
+    "definition": "A unit of heredity which is transferred from a parent to offspring and determines some characteristic of the offspring.",
+    "pronunciation": "/dʒiːn/",
+    "part_of_speech": "noun",
+    "examples": [
+      "Eye color is determined by genes.",
+      "Scientists study genes to understand hereditary diseases."
+    ],
+    "etymology": "From German 'Gen', from Greek 'genesis' meaning origin"
+  },
+  "WAVE": {
+    "definition": "A periodic disturbance of particles of a substance which may be propagated without net movement of the particles.",
+    "pronunciation": "/weɪv/",
+    "part_of_speech": "noun",
+    "examples": [
+      "Sound travels as a wave through the air.",
+      "Light waves can be reflected and refracted."
+    ],
+    "etymology": "From Old English 'wafian' meaning to wave with the hands"
+  },
+  "MASS": {
+    "definition": "A measure of the amount of matter in an object, typically expressed in grams or kilograms.",
+    "pronunciation": "/mæs/",
+    "part_of_speech": "noun",
+    "examples": [
+      "The mass of an object determines its inertia.",
+      "Mass is different from weight."
+    ],
+    "etymology": "From Latin 'massa' meaning lump or dough"
+  },
+  "BOND": {
+    "definition": "A force or mechanism that holds atoms together in a molecule or crystal.",
+    "pronunciation": "/bɒnd/",
+    "part_of_speech": "noun",
+    "examples": [
+      "Covalent bonds share electrons between atoms.",
+      "Ionic bonds form between oppositely charged ions."
+    ],
+    "etymology": "From Old Norse 'band' meaning something that binds"
+  },
+  "HEAT": {
+    "definition": "The transfer of energy from one body to another due to a difference in temperature.",
+    "pronunciation": "/hiːt/",
+    "part_of_speech": "noun",
+    "examples": [
+      "Heat flows from hot objects to cold ones.",
+      "Friction generates heat."
+    ],
+    "etymology": "From Old English 'hǣtu' meaning warmth"
+  },
+  "LENS": {
+    "definition": "A piece of transparent material with curved sides for concentrating or dispersing light rays.",
+    "pronunciation": "/lɛnz/",
+    "part_of_speech": "noun",
+    "examples": [
+      "A magnifying glass uses a convex lens.",
+      "The lens of the eye focuses light on the retina."
+    ],
+    "etymology": "From Latin 'lens' meaning lentil (due to its shape)"
+  },
+  "STEM": {
+    "definition": "The main body or stalk of a plant, which supports leaves, flowers, and fruits.",
+    "pronunciation": "/stɛm/",
+    "part_of_speech": "noun",
+    "examples": [
+      "The stem transports water from roots to leaves.",
+      "Some stems are modified to store food."
+    ],
+    "etymology": "From Old English 'stefn' meaning trunk"
+  },
+  "ROOT": {
+    "definition": "The part of a plant which attaches it to the ground and conveys water and nourishment from the soil.",
+    "pronunciation": "/ruːt/",
+    "part_of_speech": "noun",
+    "examples": [
+      "Roots anchor plants in the soil.",
+      "Carrots are edible roots."
+    ],
+    "etymology": "From Old English 'rot' meaning underground part"
+  },
+  "CORE": {
+    "definition": "The central or most important part of something, especially the innermost part of the Earth.",
+    "pronunciation": "/kɔːr/",
+    "part_of_speech": "noun",
+    "examples": [
+      "The Earth's core is extremely hot.",
+      "The core of the Sun produces energy through fusion."
+    ],
+    "etymology": "From Latin 'cor' meaning heart"
+  },
+  "VOLT": {
+    "definition": "The SI unit of electromotive force, the difference of potential that would drive one ampere of current against one ohm resistance.",
+    "pronunciation": "/vəʊlt/",
+    "part_of_speech": "noun",
+    "examples": [
+      "A typical household outlet provides 120 volts.",
+      "Batteries are rated in volts."
+    ],
+    "etymology": "Named after Italian physicist Alessandro Volta"
+  },
+  "WATT": {
+    "definition": "The SI unit of power, equivalent to one joule per second, corresponding to the rate of consumption of energy.",
+    "pronunciation": "/wɒt/",
+    "part_of_speech": "noun",
+    "examples": [
+      "A 60-watt light bulb uses 60 joules of energy per second.",
+      "Power consumption is measured in watts."
+    ],
+    "etymology": "Named after Scottish engineer James Watt"
+  },
+  "ACID": {
+    "definition": "A chemical substance that neutralizes alkalis, dissolves some metals, and turns litmus red; has a pH less than 7.",
+    "pronunciation": "/ˈæsɪd/",
+    "part_of_speech": "noun",
+    "examples": [
+      "Citric acid gives lemons their sour taste.",
+      "Strong acids can be corrosive and dangerous."
+    ],
+    "etymology": "From Latin 'acidus' meaning sour"
+  },
+  "BASE": {
+    "definition": "A substance capable of reacting with an acid to form a salt and water, or accepting hydrogen ions; has a pH greater than 7.",
+    "pronunciation": "/beɪs/",
+    "part_of_speech": "noun",
+    "examples": [
+      "Sodium hydroxide is a common base.",
+      "Bases feel slippery to the touch."
+    ],
+    "etymology": "From Greek 'basis' meaning stepping, foundation"
+  },
+  "SALT": {
+    "definition": "A chemical compound formed from the reaction of an acid with a base, with all or part of the hydrogen of the acid replaced by a metal.",
+    "pronunciation": "/sɔːlt/",
+    "part_of_speech": "noun",
+    "examples": [
+      "Table salt is sodium chloride.",
+      "Salts are ionic compounds."
+    ],
+    "etymology": "From Old English 'sealt', from Latin 'sal'"
+  },
+  "WORK": {
+    "definition": "In physics, the transfer of energy to or from an object by means of a force acting on the object.",
+    "pronunciation": "/wɜːk/",
+    "part_of_speech": "noun",
+    "examples": [
+      "Work is calculated as force times distance.",
+      "Lifting a weight requires work against gravity."
+    ],
+    "etymology": "From Old English 'weorc' meaning action, deed"
+  },
+  "SPIN": {
+    "definition": "The intrinsic angular momentum of a subatomic particle, or rotation around an axis.",
+    "pronunciation": "/spɪn/",
+    "part_of_speech": "noun",
+    "examples": [
+      "Electrons have a property called spin.",
+      "The Earth spins on its axis."
+    ],
+    "etymology": "From Old English 'spinnan' meaning draw out and twist"
+  },
+  "IRON": {
+    "definition": "A strong, hard magnetic silvery-gray metal, the chemical element of atomic number 26.",
+    "pronunciation": "/ˈaɪərn/",
+    "part_of_speech": "noun",
+    "examples": [
+      "Iron is used to make steel.",
+      "Hemoglobin contains iron atoms."
+    ],
+    "etymology": "From Old English 'iren', of Germanic origin"
+  },
+  "LEAD": {
+    "definition": "A soft, heavy, ductile bluish-gray metal, the chemical element of atomic number 82.",
+    "pronunciation": "/lɛd/",
+    "part_of_speech": "noun",
+    "examples": [
+      "Lead was once used in paint and gasoline.",
+      "Lead is toxic to humans."
+    ],
+    "etymology": "From Old English 'lead', of Germanic origin"
+  }
+}

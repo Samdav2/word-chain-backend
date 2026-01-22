@@ -1,0 +1,45 @@
+# EdTech Word Chain Game Backend
+# Python 3.10+
+
+# Core Framework
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+
+# Database
+sqlalchemy>=2.0.0
+aiosqlite>=0.19.0  # For SQLite async support (development)
+asyncpg>=0.29.0    # For PostgreSQL async support (production)
+alembic>=1.13.0
+
+# Validation & Settings
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+email-validator>=2.0.0
+
+# Authentication
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+python-multipart>=0.0.6
+
+# Graph Engine (The Breakthrough!)
+networkx>=3.0
+
+# Caching
+redis>=5.0.0
+
+# HTTP Client (for Mailjet API)
+httpx>=0.26.0
+
+# Rate Limiting
+slowapi>=0.1.9
+
+# Production Server
+gunicorn>=21.0.0   # Production WSGI server with Uvicorn workers
+orjson>=3.9.0      # Fast JSON serialization
+
+# Testing
+pytest>=8.0.0
+pytest-asyncio>=0.23.0
+
+# Development
+python-dotenv>=1.0.0
