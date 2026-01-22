@@ -49,30 +49,18 @@ echo -e "  Workers: ${GREEN}$WORKERS${NC}"
 echo -e "  Log Level: ${GREEN}$LOG_LEVEL${NC}"
 echo ""
 
-# Check if gunicorn is installed
-if ! command -v gunicorn &> /dev/null; then
-    echo -e "${YELLOW}Installing gunicorn...${NC}"
-    pip install gunicorn
+# Check if we should use workers (production) or single process (development)
+if [ "$WORKERS" == "1" ]; then
+    echo -e "${GREEN}Starting Uvicorn (single worker)...${NC}"
+    exec uvicorn app.main:app \
+        --host "$HOST" \
+        --port "$PORT" \
+        --log-level "$LOG_LEVEL"
+else
+    echo -e "${GREEN}Starting Uvicorn with $WORKERS workers...${NC}"
+    exec uvicorn app.main:app \
+        --host "$HOST" \
+        --port "$PORT" \
+        --workers "$WORKERS" \
+        --log-level "$LOG_LEVEL"
 fi
-
-# Calculate recommended workers if not set
-if [ "$WORKERS" == "auto" ]; then
-    WORKERS=$((2 * $(nproc) + 1))
-    echo -e "Auto-calculated workers: ${GREEN}$WORKERS${NC}"
-fi
-
-echo -e "${GREEN}Starting Gunicorn with Uvicorn workers...${NC}"
-echo ""
-
-# Run Gunicorn with Uvicorn workers
-exec gunicorn app.main:app \
-    --bind "$HOST:$PORT" \
-    --workers "$WORKERS" \
-    --worker-class uvicorn.workers.UvicornWorker \
-    --log-level "$LOG_LEVEL" \
-    --access-logfile - \
-    --error-logfile - \
-    --capture-output \
-    --timeout 120 \
-    --keep-alive 5 \
-    --graceful-timeout 30
