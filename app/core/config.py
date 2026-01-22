@@ -1,11 +1,8 @@
 """
-Application configuration with production-ready settings.
-
-Supports both development (SQLite) and production (PostgreSQL) environments.
-Includes connection pooling for high-concurrency game scenarios.
+Application configuration.
 """
 
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 from typing import Optional
 from functools import lru_cache
 import warnings
@@ -18,24 +15,19 @@ class Settings(BaseSettings):
     app_name: str = "EdTech Word Chain API"
     app_version: str = "1.0.0"
     debug: bool = False
-    environment: str = "development"  # development, staging, production
+    environment: str = "development"
 
-    # Database (SQLite for development, switch to PostgreSQL for production)
-    # SQLite: sqlite+aiosqlite:///./data/wordchain.db
-    # PostgreSQL: postgresql+asyncpg://user:password@localhost:5432/wordchain_db
+    # Database
     database_url: str = "sqlite+aiosqlite:///./data/wordchain.db"
-
-    # Database Connection Pool Settings (for PostgreSQL)
-    # Optimized for game concurrency - many simultaneous connections
-    db_pool_size: int = 20  # Base persistent connections
-    db_max_overflow: int = 30  # Extra connections for peak load (total: 50)
-    db_pool_timeout: int = 30  # Seconds to wait for connection
+    db_pool_size: int = 20
+    db_max_overflow: int = 30
+    db_pool_timeout: int = 30
 
     # Redis
     redis_url: str = "redis://localhost:6379/0"
 
-    # JWT Authentication
-    secret_key: str = "your-super-secret-key-change-in-production"
+    # Authentication
+    secret_key: str = "nYGsAi-MC7y_ACqPuHF7VGNn1bqx2IqOXG2I3rnFiuMULmxyP3ent5xdGZSaDbWZ1bU6nOLpk-l2RkwEJDrG5g"
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 30
     refresh_token_expire_days: int = 7
@@ -44,16 +36,14 @@ class Settings(BaseSettings):
     password_reset_token_expire_minutes: int = 60
     email_verification_token_expire_hours: int = 24
 
-    # Mailjet Email Settings
+    # Email (Mailjet)
     mailjet_api_key: Optional[str] = None
     mailjet_api_secret: Optional[str] = None
     mailjet_sender_email: str = "noreply@example.com"
     mailjet_sender_name: str = "EdTech Word Chain"
 
-    # Frontend URL (for email links)
+    # Frontend & CORS
     frontend_url: str = "http://localhost:3000"
-
-    # CORS
     cors_origins: list[str] = ["http://localhost:3000", "http://localhost:8000"]
 
     # Game Settings
@@ -66,73 +56,52 @@ class Settings(BaseSettings):
     xp_bonus_completion: int = 50
     xp_penalty_hint: int = 5
 
-    # Production Server Settings
-    workers: int = 4  # Number of uvicorn/gunicorn workers
+    # Server Settings
+    workers: int = 4
     host: str = "0.0.0.0"
     port: int = 8000
 
-    # Security Settings
-    max_request_size: int = 10 * 1024 * 1024  # 10MB max request size
+    # Security
+    max_request_size: int = 10 * 1024 * 1024
 
     @property
     def is_production(self) -> bool:
-        """Check if running in production environment."""
         return self.environment.lower() == "production"
 
     @property
     def is_sqlite(self) -> bool:
-        """Check if using SQLite database."""
         return self.database_url.startswith("sqlite")
 
-    class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
-        case_sensitive = False
+    model_config = SettingsConfigDict(
+        env_file=".env",
+        env_file_encoding="utf-8",
+        case_sensitive=False,
+        extra="ignore"
+    )
 
 
 def validate_production_settings(settings: Settings) -> None:
-    """
-    Validate settings for production deployment.
-    Raises warnings for insecure configurations.
-    """
+    """Validate settings for production deployment."""
     if settings.is_production:
-        # Check for default secret key
         if "change" in settings.secret_key.lower() or settings.secret_key == "your-super-secret-key-change-in-production":
-            raise ValueError(
-                "⚠️  SECURITY ERROR: Cannot use default SECRET_KEY in production! "
-                "Generate a secure key with: python -c \"import secrets; print(secrets.token_urlsafe(64))\""
-            )
+            raise ValueError("⚠️ SECURITY ERROR: Cannot use default SECRET_KEY in production!")
 
-        # Warn about SQLite in production
         if settings.is_sqlite:
-            warnings.warn(
-                "⚠️  SQLite is not recommended for production. "
-                "Consider switching to PostgreSQL for better concurrency.",
-                UserWarning
-            )
+            warnings.warn("⚠️ SQLite is not recommended for production.", UserWarning)
 
-        # Warn about debug mode
         if settings.debug:
-            warnings.warn(
-                "⚠️  DEBUG mode is enabled in production. This may expose sensitive information.",
-                UserWarning
-            )
+            warnings.warn("⚠️ DEBUG mode is enabled in production.", UserWarning)
 
 
 @lru_cache()
 def get_settings() -> Settings:
-    """Cached settings instance."""
     return Settings()
 
 
 settings = get_settings()
 
-# Validate on import (only raises error in production with insecure settings)
 try:
     validate_production_settings(settings)
-except ValueError as e:
+except ValueError:
     if settings.is_production:
         raise
-    else:
-        # In development, just warn
-        pass
