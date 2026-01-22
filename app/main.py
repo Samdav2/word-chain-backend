@@ -160,9 +160,9 @@ Set the `DATABASE_URL` environment variable to switch between them.
         }
     ],
     lifespan=lifespan,
-    docs_url="/docs",
-    redoc_url="/redoc",
-    openapi_url="/openapi.json",
+    docs_url=None,
+    redoc_url=None,
+    openapi_url=None,
     default_response_class=DefaultResponseClass,  # ORJSONResponse if available, else JSONResponse
     contact={
         "name": "EdTech Word Chain Support",
